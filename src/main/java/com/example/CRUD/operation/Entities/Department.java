@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 // Annotations
-@Entity
+@Entity(name = "Department")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

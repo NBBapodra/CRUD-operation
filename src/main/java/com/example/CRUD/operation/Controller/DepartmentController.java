@@ -3,11 +3,14 @@ package com.example.CRUD.operation.Controller;
 import com.example.CRUD.operation.Entities.Department;
 import com.example.CRUD.operation.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping
 public class DepartmentController {
 
     // Annotation
@@ -37,6 +40,13 @@ public class DepartmentController {
         return departmentService.updateDepartment(
                 department, departmentId);
     }
+
+    @GetMapping("/departments/{departmentName}")
+    public ResponseEntity<List<Department>> getDepartmentByName(@PathVariable("departmentName") String departmentName)
+    {
+        return new ResponseEntity<>(departmentService.getDepartmentByName(departmentName), HttpStatus.OK);
+    }
+
 
     // Delete operation
     @DeleteMapping("/departments/{id}")

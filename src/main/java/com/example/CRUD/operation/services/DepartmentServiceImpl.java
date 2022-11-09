@@ -28,6 +28,11 @@ public class DepartmentServiceImpl implements DepartmentService {
                 departmentRepository.findAll();
     }
 
+    @Override
+    public List<Department> getDepartmentByName(String name) {
+        return departmentRepository.getDepartmentByName(name);
+    }
+
     // Update operation
     @Override
     public Department
